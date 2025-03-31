@@ -11,6 +11,7 @@
 		content,
 		write_date as "writeDate"
 		from tbl_board
+		order by board_no DESC
 	</select>
 
 	<!-- 등록 -->
@@ -36,4 +37,15 @@
 		delete from tbl_board
 		where board_no = #{boardNo}
 	</delete>
+	
+	<!-- 상세조회 -->
+	<select id="selectOne" parameterType="int" resultType="board">
+		select board_no,
+		       title,
+		       writer,
+		       content,
+		       write_date as "writeDate"
+		from   tbl_board
+		where  board_no = #{boardNo}
+	</select>
 </mapper>

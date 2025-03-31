@@ -14,6 +14,18 @@
   </servlet-mapping>
   
   
+  <servlet>
+	  <servlet-name>front</servlet-name>
+	  <servlet-class>com.yedam.common.FrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+	  <servlet-name>front</servlet-name>
+	  <!-- .do로 끝나면 이쪽에서 처리하겠다 -->
+	  <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
