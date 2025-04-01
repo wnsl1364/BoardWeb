@@ -17,6 +17,10 @@ public class AddBoardControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//addBoard.do
+		
+		// HttpServletRequest req: 클라이언트(브라우저)가 보낸 요청 데이터
+		// HttpServletResponse resp: 서버가 응답할 때 사용하는 객체
 		resp.setContentType("text/html; charset=utf-8");
 		req.setCharacterEncoding("utf-8");
 		
@@ -40,7 +44,7 @@ public class AddBoardControl implements Control {
 			BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 			int r = mapper.insertBoard(board);
 			
-			resp.sendRedirect("boardList.do"); //요청재지정
+			resp.sendRedirect("boardList.do"); //요청재지정 //다른 페이지로 이동(redirect)
 		}
 	}
 

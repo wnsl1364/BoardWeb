@@ -13,21 +13,20 @@ import com.yedam.common.DataSource;
 import com.yedam.mapper.BoardMapper;
 import com.yedam.vo.BoardVO;
 
-public class BoardControl implements Control{
+public class DeleteFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 삭제화면(deleteForm.jsp)
 		SqlSession sqlSession = DataSource.getInstance().openSession();
 		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 		
-		String page = req.getParameter("page");
 		int no = Integer.parseInt(req.getParameter("bno"));
 		BoardVO bvo = mapper.selectOne(no);
 		
-		req.setAttribute("olist", bvo);
-		req.setAttribute("page", page);
+		req.setAttribute("board", bvo);
 		
-		req.getRequestDispatcher("/WEB-INF/views/board.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/deleteForm.jsp").forward(req, resp);
 	}
 
 }

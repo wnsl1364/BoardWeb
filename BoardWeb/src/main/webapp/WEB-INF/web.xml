@@ -13,7 +13,7 @@
 	  <url-pattern>/mainServlet</url-pattern>
   </servlet-mapping>
   
-  
+  <!-- mvc2패턴: Model, View, Controller의 앞 글자를 따서 만든 디자인 패턴 -->
   <servlet>
 	  <servlet-name>front</servlet-name>
 	  <servlet-class>com.yedam.common.FrontController</servlet-class>

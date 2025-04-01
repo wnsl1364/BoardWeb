@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.yedam.common.DataSource;
+import com.yedam.common.SearchDTO;
 import com.yedam.mapper.BoardMapper;
 import com.yedam.vo.BoardVO;
 
@@ -17,6 +18,8 @@ public class Test {
 		board.setContent("매퍼를 활용한 입력테스트");
 		board.setWriter("newbie");
 //		board.setBoardNo(5);
+		
+		SearchDTO search = new SearchDTO();
 
 		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
 			BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
@@ -29,7 +32,7 @@ public class Test {
 			} else {
 				System.out.println("등록실패");
 			}
-			List<BoardVO> list = mapper.selectBoard(); // sqlSession.selectList("com.yedam.mapper.BoardMapper.selectBoard");
+			List<BoardVO> list = mapper.selectBoard(search); // sqlSession.selectList("com.yedam.mapper.BoardMapper.selectBoard");
 			for (BoardVO brd : list) {
 				System.out.println(brd.toString());
 			}
