@@ -24,7 +24,7 @@ public class BoardControl implements Control{
 		int no = Integer.parseInt(req.getParameter("bno"));
 		BoardVO bvo = mapper.selectOne(no);
 		
-		req.setAttribute("olist", bvo);
+		req.setAttribute("board", bvo);
 		req.setAttribute("page", page);
 		
 		req.getRequestDispatcher("/WEB-INF/views/board.jsp").forward(req, resp);

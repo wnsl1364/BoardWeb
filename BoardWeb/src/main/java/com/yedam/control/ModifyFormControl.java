@@ -1,11 +1,11 @@
 package com.yedam.control;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -25,12 +25,25 @@ public class ModifyFormControl implements Control {
 		
 		String page = req.getParameter("page");
 		int no = Integer.parseInt(req.getParameter("bno"));
-		BoardVO bvo = mapper.selectOne(no);
+		BoardVO board = mapper.selectOne(no);
 		
-		req.setAttribute("board", bvo);
+		// 권한 있는지 체크
+		HttpSession session = req.getSession();
+		String logId = (String) session.getAttribute("logId");
+		
+		req.setAttribute("board", board);
 		req.setAttribute("page", page);
 		
-		req.getRequestDispatcher("/WEB-INF/views/modifyBoard.jsp").forward(req, resp);
+		if(logId != null && logId.equals(board.getWriter())) {
+			req.getRequestDispatcher("/WEB-INF/views/modifyBoard.jsp").forward(req, resp);
+		}else {
+			req.setAttribute("msg", "권한 노노");
+			req.getRequestDispatcher("/WEB-INF/views/board.jsp").forward(req, resp);
+		}
+		
+		
+		
+		
 	}
 
 }
