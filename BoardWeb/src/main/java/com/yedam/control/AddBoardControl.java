@@ -14,7 +14,7 @@ import com.yedam.mapper.BoardMapper;
 import com.yedam.vo.BoardVO;
 
 public class AddBoardControl implements Control {
-
+	//이 컨트롤러는 Control 인터페이스를 구현했기 때문에 반드시 exec() 메서드를 정의해야 함
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//addBoard.do

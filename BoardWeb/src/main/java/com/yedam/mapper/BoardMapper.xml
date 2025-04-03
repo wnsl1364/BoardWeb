@@ -3,6 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yedam.mapper.BoardMapper">
+	<!-- resultType: SQL 실행 결과를 담을 타입 -->
+	<!-- parameterType: SQL에 전달할 데이터 타입 -->
+	<!-- parameterType="com.yedam.vo.SearchDTO"라고 써도 되고 alias를 설정하면 parameterType="search"라고 써도 됨 -->
+	<!-- 자바에서 SearchDTO 객체 전체를 넘기니까 parameterType="search" -->
+	<!-- rownum: 행(row)에 자동으로 붙는 번호 -->
+	<!-- <![CDATA[ ... ]]>: 이 안에 있는 건 그냥 문자 그대로 봐줘(xml에서는 특수문자 그냥 쓰면 오류날수 있어서 씀) -->
+	
 	<!-- 목록 -->
 	<select id="selectBoard" resultType="board" parameterType="search">
 		select b.*

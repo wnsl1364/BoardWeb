@@ -23,7 +23,8 @@ import com.yedam.control.LogoutControl;
 import com.yedam.control.MainControl;
 
 public class FrontController extends HttpServlet {
-
+	// HttpServlet을 상속받았기 때문에 웹 요청을 직접 받을 수 있다
+	
 	// Map: 요청 url => 실행할 컨트롤 매핑
 	Map<String, Control> map;
 

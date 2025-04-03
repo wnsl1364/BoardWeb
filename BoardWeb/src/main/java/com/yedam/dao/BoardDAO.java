@@ -11,8 +11,8 @@ import com.yedam.vo.BoardVO;
 
 public class BoardDAO extends DAO{
 	public List<BoardVO> boardList(){
-		List<BoardVO> list = new ArrayList<>();
-		Connection conn = getConnect();
+		List<BoardVO> list = new ArrayList<>(); //결과를 담을 BoardVO 객체들의 리스트 생성
+		Connection conn = getConnect(); //부모 클래스인 DAO에서 DB 연결(Connection) 받아오기
 		
 		try {
 			PreparedStatement psmt = conn.prepareStatement("select * from tbl_board");

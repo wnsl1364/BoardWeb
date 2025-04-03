@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SearchDTO {
-	private int page;
+	private int page; // 페이지번호
 	private String searchCondition;
-	private String keyword;
+	private String keyword; // 검색어
 }
