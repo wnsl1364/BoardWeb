@@ -26,7 +26,7 @@ public class DeleteFormControl implements Control {
 		
 		req.setAttribute("board", bvo);
 		
-		req.getRequestDispatcher("/WEB-INF/views/deleteForm.jsp").forward(req, resp);
+		req.getRequestDispatcher("board/deleteForm.tiles").forward(req, resp);
 	}
 
 }

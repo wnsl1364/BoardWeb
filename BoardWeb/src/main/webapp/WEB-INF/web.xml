@@ -1,32 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>BoardWeb</display-name>
-  
-  <!-- url패턴 실행서블릿 매칭 -->
-  <servlet>
-	  <servlet-name>main</servlet-name>
-	  <servlet-class>com.yedam.web.MainServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-	  <servlet-name>main</servlet-name>
-	  <url-pattern>/mainServlet</url-pattern>
-  </servlet-mapping>
-  
-  <!-- mvc2패턴: Model, View, Controller의 앞 글자를 따서 만든 디자인 패턴 -->
-  <servlet>
-	  <servlet-name>front</servlet-name>
-	  <servlet-class>com.yedam.common.FrontController</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-	  <servlet-name>front</servlet-name>
-	  <!-- .do로 끝나면 이쪽에서 처리하겠다 -->
-	  <url-pattern>*.do</url-pattern>
-  </servlet-mapping>
-  
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
-  
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>BoardWeb</display-name>
+
+	<listener>
+		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+	</listener>
+
+	<!-- tiles 서블릿 -->
+	<servlet>
+		<servlet-name>Tiles Dispatch Servlet</servlet-name>
+		<servlet-class>org.apache.tiles.web.util.TilesDispatchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tiles Dispatch Servlet</servlet-name>
+		<url-pattern>*.tiles</url-pattern>
+	</servlet-mapping>
+
+	<!-- url패턴 실행서블릿 매칭 -->
+	<servlet>
+		<servlet-name>main</servlet-name>
+		<servlet-class>com.yedam.web.MainServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>main</servlet-name>
+		<url-pattern>/mainServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- mvc2패턴: Model, View, Controller의 앞 글자를 따서 만든 디자인 패턴 -->
+	<servlet>
+		<servlet-name>front</servlet-name>
+		<servlet-class>com.yedam.common.FrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>front</servlet-name>
+		<!-- .do로 끝나면 이쪽에서 처리하겠다 -->
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
 </web-app>

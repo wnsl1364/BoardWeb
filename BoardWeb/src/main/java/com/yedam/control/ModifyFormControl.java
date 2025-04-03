@@ -35,15 +35,10 @@ public class ModifyFormControl implements Control {
 		req.setAttribute("page", page);
 		
 		if(logId != null && logId.equals(board.getWriter())) {
-			req.getRequestDispatcher("/WEB-INF/views/modifyBoard.jsp").forward(req, resp);
+			req.getRequestDispatcher("board/modifyBoard.tiles").forward(req, resp);
 		}else {
 			req.setAttribute("msg", "권한 노노");
-			req.getRequestDispatcher("/WEB-INF/views/board.jsp").forward(req, resp);
+			req.getRequestDispatcher("board/board.tiles").forward(req, resp);
 		}
-		
-		
-		
-		
 	}
-
 }

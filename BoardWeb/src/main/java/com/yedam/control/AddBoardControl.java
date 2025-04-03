@@ -28,7 +28,7 @@ public class AddBoardControl implements Control {
 			//url에 직접입력, 링크 => get방식요청
 			
 			//요청재지정
-			req.getRequestDispatcher("/WEB-INF/views/addForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("board/addForm.tiles").forward(req, resp);
 		}else if(req.getMethod().equals("POST")){
 			//등록
 			String title = req.getParameter("title");

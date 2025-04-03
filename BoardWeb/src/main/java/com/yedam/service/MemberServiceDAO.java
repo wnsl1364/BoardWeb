@@ -13,4 +13,8 @@ public class MemberServiceDAO implements MemberService{
 		return null;
 	}
 
+	@Override
+	public boolean addMember(MemberVO member) {
+		return false;
+	}
 }
