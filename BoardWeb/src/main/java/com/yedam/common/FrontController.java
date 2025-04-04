@@ -14,6 +14,7 @@ import com.yedam.control.BoardControl;
 import com.yedam.control.BoardListControl;
 import com.yedam.control.DeleteBoardControl;
 import com.yedam.control.DeleteFormControl;
+import com.yedam.control.JSControl;
 import com.yedam.control.LoginControl;
 import com.yedam.control.ModifyBoardControl;
 import com.yedam.control.ModifyFormControl;
@@ -49,6 +50,7 @@ public class FrontController extends HttpServlet {
 		map.put("/logout.do", new LogoutControl());// 로그아웃 처리
 		map.put("/signForm.do", new SignUpControl());// 회원가입화면
 		map.put("/signUp.do", new SignUpControl());// 회원등록 처리
+		map.put("/javascript.do", new JSControl());// 자바스크립트
 	}
 
 	//service() 메서드: 요청처리 핵심
